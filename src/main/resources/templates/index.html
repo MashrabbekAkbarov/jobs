@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Quartz test</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <style type="text/css">
+    * {
+      font-family: Arial, serif;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div>
+    <table width="70%" border="1" align="center">
+      <thead>
+      <tr>
+        <th colspan="5">
+          <h4 th:text="${title}"></h4>
+        </th>
+      </tr>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Start</th>
+        <th>Stop</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="job : ${jobs}">
+        <td th:text="${job.id}"></td>
+        <td th:text="${job.name}"></td>
+        <td th:text="${job.description}"></td>
+        <td align="center">
+          <a th:href="@{${job.start}}">Start</a>
+        </td>
+        <td align="center">
+          <a th:href="@{${job.stop}}">Stop</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
